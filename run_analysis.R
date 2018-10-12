@@ -22,6 +22,10 @@ if(!file.exists("./data")){
 # load files with info ad giving names
 list.Features <- read.table("data/UCI HAR Dataset/features.txt")
 list.Features <- rename(list.Features,"featureid" = "V1","featurename" = "V2")
+list.Features$featurename <- make.names(
+    names = list.Features$featurename,
+    unique = TRUE
+)
 list.Activities <- read.table("data/UCI HAR Dataset/activity_labels.txt")
 list.Activities <- rename(list.Activities,
                           "activityid" = "V1",
@@ -72,13 +76,23 @@ data.Global.Subj$subjectid <- as.factor(data.Global.Subj$subjectid)
 # I put all informations together in a dataframe data.Global
 # This dataframe contains as much informations as possible coming from the
 # starting data and can be used to extract what is needed for the project.
-data.Global <- data.frame(
-    activity = data.Global.Y$activity,
-    subjectid = data.Global.Subj$subjectid,
+data.Global <- cbind(
+    data.Global.Y,
+    data.Global.Subj,
     data.Global.X
 )
 
+# I build a dataframe containing only measurements of mean and standard
+# deviations
+data.Final <- select(
+    data.Global,
+    activity,
+    subjectid,
+    grep("mean\\.\\.|std\\.\\.",names(data.Global),value = TRUE)
+)
+
+
 # TODOs: 
+#  - set proper names
 #  - set units
-#  - select required data
 #  - build second dataset with required average values
