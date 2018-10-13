@@ -86,9 +86,9 @@ data_Final <- melt(data = data_Final, id = c("subject.id", "activity"))
 data_Final <- dcast(data = data_Final,subject.id + activity ~ variable,fun.aggregate = mean)
 ```
 
-and the tidy dataset is written to the file *data_final.csv*.
+and the tidy dataset is written to the file *data_final.txt* using the `write.table()` function.
 
-## Summary of quantities reported in data_final.csv
+## Summary of quantities reported in data_final.txt
 
 #### 1. activity
 

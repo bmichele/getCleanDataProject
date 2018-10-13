@@ -66,6 +66,6 @@ Script containing the analysis. For a detailed explanation of the steps taken in
 Contains detailed informations about the analysis implemented in the script *run_analysis.R*
 
 
-## ./data_final.csv
+## ./data_final.txt
 
 Dataset created by *run_analysis.R*, reporting average values of the features for each activity and each subject.
