@@ -202,15 +202,66 @@ Average standard deviation of derivative of angular body acceleration along z-ax
 
 
 #### 33. time.body.acceleration.magnitude.average
+
+"numeric"
+Standard gravity units 'g'.
+Average euclidean norm of body acceleration.
+
 #### 34. time.body.acceleration.magnitude.standard.deviation
+
+"numeric"
+Standard gravity units 'g'.
+Average euclidean norm of standard deviation of body acceleration.
+
 #### 35. time.gravity.acceleration.magnitude.average
+
+"numeric"
+Standard gravity units 'g'.
+Average euclidean norm of gravity acceleration.
+
 #### 36. time.gravity.acceleration.magnitude.standard.deviation
+
+"numeric"
+Standard gravity units 'g'.
+Average euclidean norm of standard deviation of gravity acceleration.
+
 #### 37. time.body.acceleration.jerk.magnitude.average
+
+"numeric"
+Standard gravity units 'g/s'.
+Average euclidean norm of time derivative of body acceleration (jerk).
+
 #### 38. time.body.acceleration.jerk.magnitude.standard.deviation
+
+"numeric"
+Standard gravity units 'g/s'.
+Average euclidean norm of standard deviation of time derivative of body acceleration.
+
 #### 39. time.body.angular.acceleration.magnitude.average
+
+"numeric"
+Radians per seconds squared '1/s^2'.
+Average euclidean norm of body angular acceleration.
+
 #### 40. time.body.angular.acceleration.magnitude.standard.deviation
+
+"numeric"
+Standard gravity units 'g'.
+Average euclidean norm of standard deviation of body angular acceleration.
+
 #### 41. time.body.angular.acceleration.jerk.magnitude.average
+
+"numeric"
+Radians per seconds cube '1/s^3'.
+Average euclidean norm of time derivative of body angular acceleration.
+
+
 #### 42. time.body.angular.acceleration.jerk.magnitude.standard.deviation
+
+"numeric"
+Radians per seconds cube '1/s^3'.
+Average euclidean norm of time standard deviation od derivative of body angular acceleration.
+
 
 #### 43. frequency.body.acceleration.average.x
 
