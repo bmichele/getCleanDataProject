@@ -110,4 +110,5 @@ names(data_Final) <- names_desc
 data_Final <- melt(data = data_Final, id = c("subject.id", "activity"))
 data_Final <- dcast(data = data_Final,subject.id + activity ~ variable,fun.aggregate = mean)
 
+# I write the data in the file "data_Final.csv"
 write.csv(data_Final,file = "data_final.csv",row.names = FALSE,quote = FALSE)
