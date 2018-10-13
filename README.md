@@ -21,7 +21,7 @@ and some additional files
 * *features.txt*
 * *features_info.txt*
 
-### Datasets
+#### Datasets
 
 The train dataset contains:
 
@@ -43,7 +43,7 @@ The test dataset has a similar structure, with the following differences:
 
 * The features considered, as well as the activity types are the same as for the train dataset.
 
-### Other files
+#### Other files
 
 * *README.txt*
 Readme file, with more info.
@@ -59,8 +59,13 @@ More info about the features and how they were computed.
 
 ## ./run_analysis.R
 
-Actual analysis
+Script containing the analysis. For a detailed explanation of the steps taken in the script, see the code book *CodeBook.md*.
+
+## ./CodeBook.md
+
+Contains detailed informations about the analysis implemented in the script *run_analysis.R*
+
 
 ## ./data_final.csv
 
-Dataset created by the analysis, reporting average values of the features for each activity and each subject.
+Dataset created by *run_analysis.R*, reporting average values of the features for each activity and each subject.

@@ -1,4 +1,94 @@
-# Code Book for data_final.csv
+# Code Book
+
+## Actions performed to clean tha dataset
+
+Original data are downloaded at the link
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+and a full description of the data is available at the page
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+
+In the following, we go through the most important steps taken in the cleaning process.
+
+### Download and clean training and test datasets
+
+The required files are loaded by
+
+```
+# features and activity names
+list_Features <- read.table("data/UCI HAR Dataset/features.txt")
+list_Activities <- read.table("data/UCI HAR Dataset/activity_labels.txt")
+# training dataset
+data_Train_X <- read.table("data/UCI HAR Dataset/train/X_train.txt")
+data_Train_Y <- read.table("data/UCI HAR Dataset/train/y_train.txt")
+data_Train_Subj <- read.table("data/UCI HAR Dataset/train/subject_train.txt")
+# test dataset
+data_Test_X <- read.table("data/UCI HAR Dataset/test/X_test.txt")
+data_Test_Y <- read.table("data/UCI HAR Dataset/test/y_test.txt")
+data_Test_Subj <- read.table("data/UCI HAR Dataset/test/subject_test.txt")
+```
+
+Then the names of the dataframes are modified in order to be compatible with R (removing parenthesis and calling the `make.names()` function).
+
+The names of the dataframes containing the training and test datasets are given by the features listed in `list_Features` and are set by
+
+```
+names(data_Train_X) <- list_Features$featurename
+names(data_Test_X) <- list_Features$featurename
+
+```
+
+### Merging the datasets
+
+Firstly, the dataframes corresponding to the training dataset and the test dataset are merged by rows, so that the resulting dataframes have all the observations (window samples) of the training set first, followed by the observations of the test dataset. This is done using
+
+```
+data_Global_X <- rbind(data_Train_X,data_Test_X)
+data_Global_Y <- rbind(data_Train_Y,data_Test_Y)
+data_Global_Subj <- rbind(data_Train_Subj,data_Test_Subj)
+```
+
+At this point, we have three dataframes:
+
+ * `data_Global_X`, containing the feature values for all the observations
+ * `data_Global_Y`, containing the activity corresponding to each observation
+ * `data_Global_Subj`, containing the individuals corresponding to each observation.
+ 
+ The dataframes are merged by column by
+ 
+ ```
+ data_Global <- cbind(
+    data_Global_Y,
+    data_Global_Subj,
+    data_Global_X
+)
+ ```
+
+### Selecting relevant columns and cleaning names
+
+As requested by the exercise, from the dataframe `data_Global`, only the values of means and standard deviations are selected using the `select()` function from the `dplyr` package.
+
+Moerover, the names of the resulting dataframes are changed in order to be more understandable, by multiple calls to the `sub()` function. For example, the first call replaces the prefix `t` of the "time" variables by
+
+```
+names(data_Final) <- sub("^t","time",names(data_Final))
+```
+
+### Building and writing the tidy dataset
+
+The tidy dataframe containing the average of each variable for each activity and each subject is defined using the functions `melt()` and `dcast()` (`reshape2` package) in the following way:
+
+```
+data_Final <- melt(data = data_Final, id = c("subject.id", "activity"))
+data_Final <- dcast(data = data_Final,subject.id + activity ~ variable,fun.aggregate = mean)
+```
+
+and the tidy dataset is written to the file *data_final.csv*.
+
+## Summary of quantities reported in data_final.csv
 
 #### 1. activity
 
