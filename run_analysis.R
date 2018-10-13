@@ -20,77 +20,79 @@ if(!file.exists("./data")){
 ## original dataset (training or test)
 
 # load files with info ad giving names
-list.Features <- read.table("data/UCI HAR Dataset/features.txt")
-list.Features <- rename(list.Features,"featureid" = "V1","featurename" = "V2")
-list.Features$featurename <- make.names(
-    names = list.Features$featurename,
+list_Features <- read.table("data/UCI HAR Dataset/features.txt")
+list_Features <- rename(list_Features,"featureid" = "V1","featurename" = "V2")
+list_Features$featurename <- make.names(
+    names = list_Features$featurename,
     unique = TRUE
 )
-list.Activities <- read.table("data/UCI HAR Dataset/activity_labels.txt")
-list.Activities <- rename(list.Activities,
+list_Activities <- read.table("data/UCI HAR Dataset/activity_labels.txt")
+list_Activities <- rename(list_Activities,
                           "activityid" = "V1",
                           "activityname" = "V2"
                           )
 
 # load the training dataset
-data.Train.X <- read.table("data/UCI HAR Dataset/train/X_train.txt")
-data.Train.Y <- read.table("data/UCI HAR Dataset/train/y_train.txt")
-data.Train.Subj <- read.table("data/UCI HAR Dataset/train/subject_train.txt")
+data_Train_X <- read.table("data/UCI HAR Dataset/train/X_train.txt")
+data_Train_Y <- read.table("data/UCI HAR Dataset/train/y_train.txt")
+data_Train_Subj <- read.table("data/UCI HAR Dataset/train/subject_train.txt")
 # load the test dataset
-data.Test.X <- read.table("data/UCI HAR Dataset/test/X_test.txt")
-data.Test.Y <- read.table("data/UCI HAR Dataset/test/y_test.txt")
-data.Test.Subj <- read.table("data/UCI HAR Dataset/test/subject_test.txt")
+data_Test_X <- read.table("data/UCI HAR Dataset/test/X_test.txt")
+data_Test_Y <- read.table("data/UCI HAR Dataset/test/y_test.txt")
+data_Test_Subj <- read.table("data/UCI HAR Dataset/test/subject_test.txt")
 
 # Setting names to dataframes of training set
-names(data.Train.X) <- list.Features$featurename 
-data.Train.Y <- rename(data.Train.Y,"activity" = "V1")
-data.Train.Subj <- rename(data.Train.Subj,"subjectid" = "V1")
+names(data_Train_X) <- list_Features$featurename 
+data_Train_Y <- rename(data_Train_Y,"activity" = "V1")
+data_Train_Subj <- rename(data_Train_Subj,"subjectid" = "V1")
 
 
 # Setting names to dataframes of test set
-names(data.Test.X) <- list.Features$featurename 
-data.Test.Y <- rename(data.Test.Y,"activity" = "V1")
-data.Test.Subj <- rename(data.Test.Subj,"subjectid" = "V1")
+names(data_Test_X) <- list_Features$featurename 
+data_Test_Y <- rename(data_Test_Y,"activity" = "V1")
+data_Test_Subj <- rename(data_Test_Subj,"subjectid" = "V1")
 
 # Storing dimensions of dataframes
-nobs.Train <- nrow(data.Train.X) # number of window samples in training dataset
-nobs.Test <- nrow(data.Test.X)   # number of window samples in test dataset
-nobs.Global <- nobs.Train + nobs.Test # total number of window samples
+nobs_Train <- nrow(data_Train_X) # number of window samples in training dataset
+nobs_Test <- nrow(data_Test_X)   # number of window samples in test dataset
+nobs_Global <- nobs_Train + nobs_Test # total number of window samples
 
 # Adding a column to keep track of original dataset
-data.Train.X$dataset <- as.factor(rep("train",nobs.Train))
-data.Test.X$dataset <- as.factor(rep("test",nobs.Test))
+data_Train_X$dataset <- as.factor(rep("train",nobs_Train))
+data_Test_X$dataset <- as.factor(rep("test",nobs_Test))
 
 # I merge the two datasets (training BEFORE test in rows)
-data.Global.X <- rbind(data.Train.X,data.Test.X)
-data.Global.Y <- rbind(data.Train.Y,data.Test.Y)
-data.Global.Subj <- rbind(data.Train.Subj,data.Test.Subj)
+data_Global_X <- rbind(data_Train_X,data_Test_X)
+data_Global_Y <- rbind(data_Train_Y,data_Test_Y)
+data_Global_Subj <- rbind(data_Train_Subj,data_Test_Subj)
 
 # I specify the activities using factors and with levels given by proper names
-data.Global.Y$activity <- as.factor(data.Global.Y$activity)
-levels(data.Global.Y$activity) <- list.Activities$activityname
+data_Global_Y$activity <- as.factor(data_Global_Y$activity)
+levels(data_Global_Y$activity) <- list_Activities$activityname
 
 # I specify the subjects using factors instead of integers
-data.Global.Subj$subjectid <- as.factor(data.Global.Subj$subjectid)
+data_Global_Subj$subjectid <- as.factor(data_Global_Subj$subjectid)
 
-# I put all informations together in a dataframe data.Global
+# I put all informations together in a dataframe data_Global
 # This dataframe contains as much informations as possible coming from the
 # starting data and can be used to extract what is needed for the project.
-data.Global <- cbind(
-    data.Global.Y,
-    data.Global.Subj,
-    data.Global.X
+data_Global <- cbind(
+    data_Global_Y,
+    data_Global_Subj,
+    data_Global_X
 )
 
 # I build a dataframe containing only measurements of mean and standard
 # deviations
-data.Final <- select(
-    data.Global,
+data_Final <- select(
+    data_Global,
     activity,
     subjectid,
-    grep("mean\\.\\.|std\\.\\.",names(data.Global),value = TRUE)
+    grep("mean\\.\\.|std\\.\\.",names(data_Global),value = TRUE)
 )
 
+names_desc <- sub("^t","time.",names(data_Final))
+names_desc <- gsub('[A-Z]','\\1',names_desc)
 
 # TODOs: 
 #  - set proper names
