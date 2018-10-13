@@ -22,183 +22,183 @@ Values: 1-30
 #### 3. time.body.acceleration.average.x
 
 "numeric"
-Standard gravity units 'g'
-Average body acceleration along x-axis
+Standard gravity units 'g'.
+Average body acceleration along x-axis.
 
 #### 4. time.body.acceleration.average.y
 
 "numeric"
-Standard gravity units 'g'
-Average body acceleration along y-axis
+Standard gravity units 'g'.
+Average body acceleration along y-axis.
 	
 #### 5. time.body.acceleration.average.z
 
 "numeric"
-Standard gravity units 'g'
-Average body acceleration along z-axis
+Standard gravity units 'g'.
+Average body acceleration along z-axis.
 	
 #### 6. time.body.acceleration.standard.deviation.x
 
 "numeric"
-Standard gravity units 'g'
-Average standard deviation of body acceleration along x-axis
+Standard gravity units 'g'.
+Average standard deviation of body acceleration along x-axis.
 
 #### 7. time.body.acceleration.standard.deviation.y
 
 "numeric"
-Standard gravity units 'g'
-Average standard deviation of body acceleration along y-axis
+Standard gravity units 'g'.
+Average standard deviation of body acceleration along y-axis.
 
 #### 8. time.body.acceleration.standard.deviation.z
 
 "numeric"
-Standard gravity units 'g'
-Average standard deviation of body acceleration along z-axis
+Standard gravity units 'g'.
+Average standard deviation of body acceleration along z-axis.
 
 #### 9. time.gravity.acceleration.average.x
 
 "numeric"
-Standard gravity units 'g'
-Average gravitational acceleration along x-axis
+Standard gravity units 'g'.
+Average gravitational acceleration along x-axis.
 
 #### 10. time.gravity.acceleration.average.y
 
 "numeric"
-Standard gravity units 'g'
-Average gravitational acceleration along y-axis
+Standard gravity units 'g'.
+Average gravitational acceleration along y-axis.
 
 #### 11. time.gravity.acceleration.average.z
 
 "numeric"
-Standard gravity units 'g'
-Average gravitational acceleration along z-axis
+Standard gravity units 'g'.
+Average gravitational acceleration along z-axis.
 
 #### 12. time.gravity.acceleration.standard.deviation.x
 
 "numeric"
-Standard gravity units 'g'
-Average standard deviation of gravity acceleration along x-axis
+Standard gravity units 'g'.
+Average standard deviation of gravity acceleration along x-axis.
 
 #### 13. time.gravity.acceleration.standard.deviation.y
 
 "numeric"
-Standard gravity units 'g'
-Average standard deviation of gravity acceleration along y-axis
+Standard gravity units 'g'.
+Average standard deviation of gravity acceleration along y-axis.
 
 #### 14. time.gravity.acceleration.standard.deviation.z
 
 "numeric"
-Standard gravity units 'g'
-Average standard deviation of gravity acceleration along z-axis
+Standard gravity units 'g'.
+Average standard deviation of gravity acceleration along z-axis.
 
 #### 15. time.body.acceleration.jerk.average.x
 
 "numeric"
-Standard gravity units per seconds 'g/s'
-Average derivative (with respect to time) of body acceleration along x-axis
+Standard gravity units per seconds 'g/s'.
+Average derivative (with respect to time) of body acceleration along x-axis.
 
 #### 16. time.body.acceleration.jerk.average.y
 
 "numeric"
-Standard gravity units per seconds 'g/s'
-Average derivative (with respect to time) of body acceleration along y-axis
+Standard gravity units per seconds 'g/s'.
+Average derivative (with respect to time) of body acceleration along y-axis.
 
 #### 17. time.body.acceleration.jerk.average.z
 
 "numeric"
-Standard gravity units per seconds 'g/s'
-Average derivative (with respect to time) of body acceleration along z-axis
+Standard gravity units per seconds 'g/s'.
+Average derivative (with respect to time) of body acceleration along z-axis.
 
 #### 18. time.body.acceleration.jerk.standard.deviation.x
 
 "numeric"
-Standard gravity units per seconds 'g/s'
-Average standard deviation of the derivative (with respect to time) of body acceleration along x-axis
+Standard gravity units per seconds 'g/s'.
+Average standard deviation of the derivative (with respect to time) of body acceleration along x-axis.
 
 #### 19. time.body.acceleration.jerk.standard.deviation.y
 
 "numeric"
-Standard gravity units per seconds 'g/s'
-Average standard deviation of the derivative (with respect to time) of body acceleration along y-axis
+Standard gravity units per seconds 'g/s'.
+Average standard deviation of the derivative (with respect to time) of body acceleration along y-axis.
 
 #### 20. time.body.acceleration.jerk.standard.deviation.z
 
 "numeric"
-Standard gravity units per seconds 'g/s'
-Average standard deviation of the derivative (with respect to time) of body acceleration along z-axis
+Standard gravity units per seconds 'g/s'.
+Average standard deviation of the derivative (with respect to time) of body acceleration along z-axis.
 
 
 #### 21. time.body.angular.acceleration.average.x
 	
 "numeric"
-Radians per second '1/s'
-Average angular body acceleration along x-axis
+Radians per seconds squared '1/s^2'.
+Average angular body acceleration along x-axis.
 
 #### 22. time.body.angular.acceleration.average.y
 	
 "numeric"
-Radians per second '1/s'
-Average angular body acceleration along y-axis
+Radians per seconds squared '1/s^2'.
+Average angular body acceleration along y-axis.
 	
 #### 23. time.body.angular.acceleration.average.z
 	
 "numeric"
-Radians per second '1/s'
-Average angular body acceleration along z-axis
+Radians per seconds squared '1/s^2'.
+Average angular body acceleration along z-axis.
 
 #### 24. time.body.angular.acceleration.standard.deviation.x
 	
 "numeric"
-Radians per second '1/s'
-Average standard deviation of angular body acceleration along x-axis
+Radians per seconds squared '1/s^2'.
+Average standard deviation of angular body acceleration along x-axis.
 
 #### 25. time.body.angular.acceleration.standard.deviation.y
 	
 "numeric"
-Radians per second '1/s'
-Average standard deviation of angular body acceleration along y-axis
+Radians per seconds squared '1/s^2'.
+Average standard deviation of angular body acceleration along y-axis.
 
 #### 26. time.body.angular.acceleration.standard.deviation.z
 	
 "numeric"
-Radians per second '1/s'
-Average standard deviation of angular body acceleration along z-axis
+Radians per seconds squared '1/s^2'.
+Average standard deviation of angular body acceleration along z-axis.
 
 #### 27. time.body.angular.acceleration.jerk.average.x
 	
 "numeric"
-Radians per second squared '1/s^2'
-Average derivative of angular body acceleration along x-axis
+Radians per seconds cube '1/s^3'.
+Average derivative of angular body acceleration along x-axis.
 
 #### 28. time.body.angular.acceleration.jerk.average.y
 	
 "numeric"
-Radians per second squared '1/s^2'
-Average derivative of angular body acceleration along y-axis
+Radians per seconds cube '1/s^3'.
+Average derivative of angular body acceleration along y-axis.
 
 #### 29. time.body.angular.acceleration.jerk.average.z
 	
 "numeric"
-Radians per second squared '1/s^2'
-Average derivative of angular body acceleration along z-axis
+Radians per seconds cube '1/s^3'.
+Average derivative of angular body acceleration along z-axis.
 
 #### 30. time.body.angular.acceleration.jerk.standard.deviation.x
 	
 "numeric"
-Radians per second squared '1/s^2'
-Average standard deviation of derivative of angular body acceleration along x-axis
+Radians per seconds cube '1/s^3'.
+Average standard deviation of derivative of angular body acceleration along x-axis.
 
 #### 31. time.body.angular.acceleration.jerk.standard.deviation.y
 	
 "numeric"
-Radians per second squared '1/s^2'
-Average standard deviation of derivative of angular body acceleration along y-axis
+Radians per seconds cube '1/s^3'.
+Average standard deviation of derivative of angular body acceleration along y-axis.
 
 #### 32. time.body.angular.acceleration.jerk.standard.deviation.z
 	
 "numeric"
-Radians per second squared '1/s^2'
-Average standard deviation of derivative of angular body acceleration along z-axis
+Radians per seconds cube '1/s^3'.
+Average standard deviation of derivative of angular body acceleration along z-axis.
 
 
 #### 33. time.body.acceleration.magnitude.average
