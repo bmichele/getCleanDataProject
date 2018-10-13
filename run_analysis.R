@@ -23,9 +23,8 @@ fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%2
 if(!file.exists("dataset.zip")){
     download.file(fileURL,destfile = "dataset.zip")
 }
-if(!file.exists("./data")){
-    dir.create("data")
-    unzip("dataset.zip",exdir = "./data")
+if(!file.exists("./UCI HAR Dataset/")){
+    unzip("dataset.zip",exdir = "./")
 }
 
 ## Firstly, I merge the train and test datsets. In order to keep as much
@@ -33,26 +32,26 @@ if(!file.exists("./data")){
 ## original dataset (training or test)
 
 # load files with info ad giving names
-list_Features <- read.table("data/UCI HAR Dataset/features.txt")
+list_Features <- read.table("UCI HAR Dataset/features.txt")
 list_Features <- rename(list_Features,"featureid" = "V1","featurename" = "V2")
 list_Features$featurename <- make.names(
     names = list_Features$featurename,
     unique = TRUE
 )
-list_Activities <- read.table("data/UCI HAR Dataset/activity_labels.txt")
+list_Activities <- read.table("UCI HAR Dataset/activity_labels.txt")
 list_Activities <- rename(list_Activities,
                           "activityid" = "V1",
                           "activityname" = "V2"
                           )
 
 # load the training dataset
-data_Train_X <- read.table("data/UCI HAR Dataset/train/X_train.txt")
-data_Train_Y <- read.table("data/UCI HAR Dataset/train/y_train.txt")
-data_Train_Subj <- read.table("data/UCI HAR Dataset/train/subject_train.txt")
+data_Train_X <- read.table("UCI HAR Dataset/train/X_train.txt")
+data_Train_Y <- read.table("UCI HAR Dataset/train/y_train.txt")
+data_Train_Subj <- read.table("UCI HAR Dataset/train/subject_train.txt")
 # load the test dataset
-data_Test_X <- read.table("data/UCI HAR Dataset/test/X_test.txt")
-data_Test_Y <- read.table("data/UCI HAR Dataset/test/y_test.txt")
-data_Test_Subj <- read.table("data/UCI HAR Dataset/test/subject_test.txt")
+data_Test_X <- read.table("UCI HAR Dataset/test/X_test.txt")
+data_Test_Y <- read.table("UCI HAR Dataset/test/y_test.txt")
+data_Test_Subj <- read.table("UCI HAR Dataset/test/subject_test.txt")
 
 # Setting names to dataframes of training set
 names(data_Train_X) <- list_Features$featurename 

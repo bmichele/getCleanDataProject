@@ -7,12 +7,12 @@ Project instructions
 ## ./dataset.zip
 Starting dataset downloaded from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
-## ./data
+## ./UCI HAR Dataset
 
 Folder containing unzipped data, before cleaning. The folder contains two datasets:
 
-* *data/test*,
-* *data/train*.
+* *UCI HAR Dataset/test*,
+* *UCI HAR Dataset/train*.
 
 and some additional files
 
@@ -23,7 +23,7 @@ and some additional files
 
 #### Datasets
 
-The train dataset contains:
+The training dataset *UCI HAR Dataset/train* contains:
 
 * *X_train.txt*
 The actual dataset, in a 7352x561 table. Each row corresponds to an observation (window sample), each column to a feature.
@@ -37,7 +37,7 @@ Contains a vector of length 7352, with entries in the range 1-30, corresponding 
 * *Inertial Signals (folder)*
 Contains the raw data used to compute the 561 features reported in *X_train.txt*. Contains various tables of dim 7352x128. 128 is the number of numerical output obtained from the device in each observations for body acceleration, angular accelerations, (...) used to compute the features. 
 
-The test dataset has a similar structure, with the following differences:
+The test dataset *UCI HAR Dataset/test* has a similar structure, with the following differences:
 
 * The observations are only 2947, and correspond to the observations taken on the 30 individals selected randomly to build the test dataset.
 

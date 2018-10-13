@@ -19,16 +19,16 @@ The required files are loaded by
 
 ```
 # features and activity names
-list_Features <- read.table("data/UCI HAR Dataset/features.txt")
-list_Activities <- read.table("data/UCI HAR Dataset/activity_labels.txt")
+list_Features <- read.table("UCI HAR Dataset/features.txt")
+list_Activities <- read.table("UCI HAR Dataset/activity_labels.txt")
 # training dataset
-data_Train_X <- read.table("data/UCI HAR Dataset/train/X_train.txt")
-data_Train_Y <- read.table("data/UCI HAR Dataset/train/y_train.txt")
-data_Train_Subj <- read.table("data/UCI HAR Dataset/train/subject_train.txt")
+data_Train_X <- read.table("UCI HAR Dataset/train/X_train.txt")
+data_Train_Y <- read.table("UCI HAR Dataset/train/y_train.txt")
+data_Train_Subj <- read.table("UCI HAR Dataset/train/subject_train.txt")
 # test dataset
-data_Test_X <- read.table("data/UCI HAR Dataset/test/X_test.txt")
-data_Test_Y <- read.table("data/UCI HAR Dataset/test/y_test.txt")
-data_Test_Subj <- read.table("data/UCI HAR Dataset/test/subject_test.txt")
+data_Test_X <- read.table("UCI HAR Dataset/test/X_test.txt")
+data_Test_Y <- read.table("UCI HAR Dataset/test/y_test.txt")
+data_Test_Subj <- read.table("UCI HAR Dataset/test/subject_test.txt")
 ```
 
 Then the names of the dataframes are modified in order to be compatible with R (removing parenthesis and calling the `make.names()` function).
