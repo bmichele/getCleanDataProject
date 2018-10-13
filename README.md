@@ -59,7 +59,7 @@ More info about the features and how they were computed.
 
 ## ./run_analysis.R
 
-Script containing the analysis. For a detailed explanation of the steps taken in the script, see the code book *CodeBook.md*.
+Script containing the analysis. For a detailed explanation of the steps taken in the script, see the code book *CodeBook.md*. The script should be executed in the same folder where the starting dataset is stored.
 
 ## ./CodeBook.md
 
