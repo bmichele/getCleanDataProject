@@ -60,3 +60,7 @@ More info about the features and how they were computed.
 ## ./run_analysis.R
 
 Actual analysis
+
+## ./data_final.csv
+
+Dataset created by the analysis, reporting average values of the features for each activity and each subject.

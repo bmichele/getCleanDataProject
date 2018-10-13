@@ -4,6 +4,7 @@ setwd("/home/miche/Repositories/getCleanDataProject")
 
 ## loading packages
 library("dplyr")
+library("reshape2")
 
 ## I download and unzip the data
 fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -44,13 +45,13 @@ data_Test_Subj <- read.table("data/UCI HAR Dataset/test/subject_test.txt")
 # Setting names to dataframes of training set
 names(data_Train_X) <- list_Features$featurename 
 data_Train_Y <- rename(data_Train_Y,"activity" = "V1")
-data_Train_Subj <- rename(data_Train_Subj,"subjectid" = "V1")
+data_Train_Subj <- rename(data_Train_Subj,"subject.id" = "V1")
 
 
 # Setting names to dataframes of test set
 names(data_Test_X) <- list_Features$featurename 
 data_Test_Y <- rename(data_Test_Y,"activity" = "V1")
-data_Test_Subj <- rename(data_Test_Subj,"subjectid" = "V1")
+data_Test_Subj <- rename(data_Test_Subj,"subject.id" = "V1")
 
 # Storing dimensions of dataframes
 nobs_Train <- nrow(data_Train_X) # number of window samples in training dataset
@@ -68,10 +69,10 @@ data_Global_Subj <- rbind(data_Train_Subj,data_Test_Subj)
 
 # I specify the activities using factors and with levels given by proper names
 data_Global_Y$activity <- as.factor(data_Global_Y$activity)
-levels(data_Global_Y$activity) <- list_Activities$activityname
+levels(data_Global_Y$activity) <- tolower(list_Activities$activityname)
 
 # I specify the subjects using factors instead of integers
-data_Global_Subj$subjectid <- as.factor(data_Global_Subj$subjectid)
+data_Global_Subj$subject.id <- as.factor(data_Global_Subj$subject.id)
 
 # I put all informations together in a dataframe data_Global
 # This dataframe contains as much informations as possible coming from the
@@ -87,14 +88,26 @@ data_Global <- cbind(
 data_Final <- select(
     data_Global,
     activity,
-    subjectid,
+    subject.id,
     grep("mean\\.\\.|std\\.\\.",names(data_Global),value = TRUE)
 )
 
-names_desc <- sub("^t","time.",names(data_Final))
-names_desc <- gsub('[A-Z]','\\1',names_desc)
+# I do some replacements to have descriptive names
+names_desc <- sub("^t","time",names(data_Final))
+names_desc <- sub("^f","frequency",names_desc)
+names_desc <- sub("Acc","Acceleration",names_desc)
+names_desc <- sub("Gyro","AngularAcceleration",names_desc)
+names_desc <- sub("Mag","Magnitude",names_desc)
+names_desc <- sub("mean","average",names_desc)
+names_desc <- sub("std","standard.deviation",names_desc)
+names_desc <- gsub("([A-Z])",".\\1",names_desc)
+names_desc <- gsub("\\.{2,}$","",names_desc)
+names_desc <- tolower(gsub("\\.{2,}","\\.",names_desc))
 
-# TODOs: 
-#  - set proper names
-#  - set units
-#  - build second dataset with required average values
+names(data_Final) <- names_desc
+
+# I build a second dataset with required average values
+data_Final <- melt(data = data_Final, id = c("subject.id", "activity"))
+data_Final <- dcast(data = data_Final,subject.id + activity ~ variable,fun.aggregate = mean)
+
+write.csv(data_Final,file = "data_final.csv",row.names = FALSE,quote = FALSE)
